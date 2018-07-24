@@ -3,7 +3,9 @@ from nodejs_codegen import gen
 from codegenhelper import put_folder, remove
 
 
-data = {}
+data = {
+  "name": "test_app"
+}
 output_path = "./test"
 
 def setup_test_app():
