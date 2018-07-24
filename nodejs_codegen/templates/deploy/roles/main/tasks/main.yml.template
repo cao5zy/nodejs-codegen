@@ -22,14 +22,14 @@
     entrypoint: "node app.js"
     when: interface_service_data_debug=="true"
 
-- Name: "deploy {{'{{'}} interface_service_data {{'}}'}} for integration"
+- Name: "deploy {{'{{'}} {{ name }} {{'}}'}} for integration"
   docker_container:
-    name: "{{'{{'}}interface_service_data{{'}}'}}"
+    name: "{{'{{'}} {{ name }} {{'}}'}}"
     image: "node:6.10.3"
-    working_dir: "{{'{{'}}public_docker_work_dir{{'}}'}}"
+    working_dir: "/var/app"
     volumes:
-      - "{{'{{'}} interface_service_data_root{{'}}'}}:/var/app:Z"
-    exposed: "{{'{{'}} interface_service_data_port{{'}}'}}"
+      - "{{'{{'}} {{ name }}_root{{'}}'}}:/var/app:Z"
+    exposed: "{{'{{'}} {{ name }}_port{{'}}'}}"
     links:
       - "{{'{{'}}interface_db{{'}}'}}:{{'{{'}}interface_db{{'}}'}}"
     restart: yes
