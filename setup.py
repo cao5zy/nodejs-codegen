@@ -6,14 +6,16 @@ requires = []
 
 setup(
     name = name,
-    version = '0.0.1',
+    version = '0.0.18',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'nodejs-codegen is a library for generating the infrastructure code of microservices in nodejs.',
     long_description = """nodejs-codegen is a library for generating the infrastructure code of microservices in nodejs.""",
     url = 'https://github.com/cao5zy/nodejs-codegen',
-    packages = [name, "nodejs_codegen.code", "nodejs_codegen.templates", "nodejs_codegen.templates.deploy"],
-    include_package_data=True,
+    packages = [name],
+    package_dir = {'nodejs_codegen': 'nodejs_codegen'},
+    package_data = {'nodejs_codegen': ["templates/*.*", "code/*.*"]},
+    include_package_data = True,
     install_requires = requires,
     license = 'Apache',
     classifiers = [
