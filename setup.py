@@ -6,7 +6,7 @@ requires = []
 
 setup(
     name = name,
-    version = '0.0.18',
+    version = '0.0.19',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'nodejs-codegen is a library for generating the infrastructure code of microservices in nodejs.',
