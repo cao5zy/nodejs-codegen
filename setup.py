@@ -6,7 +6,7 @@ requires = ['codegenhelper>=0.0.9', 'code_engine>=1.0.12']
 
 setup(
     name = name,
-    version = '0.0.20',
+    version = '0.1.0',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'nodejs-codegen is a library for generating the infrastructure code of microservices in nodejs.',
