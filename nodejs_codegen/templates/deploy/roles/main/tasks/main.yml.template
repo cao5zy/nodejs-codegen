@@ -14,13 +14,16 @@
       - "{{'{{'}} {{ name }}_root {{'}}'}}:/var/app:Z"
     ports:
       - "{{'{{'}} {{ name }}_port {{'}}'}}:{{'{{'}} {{ name }}_port {{'}}'}}"
+{% if dep_services %} 
     links:
-      - "{{'{{'}}interface_db{{'}}'}}:{{'{{'}}interface_db{{'}}'}}"
+{% for service in dep_services %}      - "{{'{{'}}{{service}}{{'}}'}}:{{'{{'}}{{service}}{{'}}'}}"
+{% endfor %}      
+{% endif %}      
     restart: yes
     recreate: yes
     state: started
     entrypoint: "node app.js"
-    when: interface_service_data_debug=="true"
+    when: {{ name }}_debug=="true"
 
 - Name: "deploy {{'{{'}} {{ name }} {{'}}'}} for integration"
   docker_container:
@@ -30,13 +33,16 @@
     volumes:
       - "{{'{{'}} {{ name }}_root{{'}}'}}:/var/app:Z"
     exposed: "{{'{{'}} {{ name }}_port{{'}}'}}"
+{% if dep_services %} 
     links:
-      - "{{'{{'}}interface_db{{'}}'}}:{{'{{'}}interface_db{{'}}'}}"
+{% for service in dep_services %}      - "{{'{{'}}{{service}}{{'}}'}}:{{'{{'}}{{service}}{{'}}'}}"
+{% endfor %}      
+{% endif %}      
     restart: yes
     recreate: yes
     state: started
     entrypoint: "node app.js"
-    when: interface_service_data_debug=="false"
+    when: {{ name }}_debug=="false"
 
 
 
