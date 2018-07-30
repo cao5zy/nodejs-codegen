@@ -1,6 +1,6 @@
 {
-    "port": {{'{{'}}{{ name }}_port{{'}}'}},
+    "port": {{'{{'}}{{ name }}_port{{'}}'}} {% if dep_services %},
 {% for service in dep_services %}    "{{service}}": "{{'{{'}}{{service}}{{'}}'}}",
     "{{service}}_port: "{{'{{'}}{{service}}_port{{'}}'}}"{%if not loop.last %},{% endif %}
-{% endfor %}
+{% endfor %}{% endif %}
 }

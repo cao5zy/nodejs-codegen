@@ -14,7 +14,7 @@
       - "{{'{{'}} {{ name }}_root {{'}}'}}:/var/app:Z"
     ports:
       - "{{'{{'}} {{ name }}_port {{'}}'}}:{{'{{'}} {{ name }}_port {{'}}'}}"
-{% if dep_services %} 
+{% if dep_services is not none %} 
     links:
 {% for service in dep_services %}      - "{{'{{'}}{{service}}{{'}}'}}:{{'{{'}}{{service}}{{'}}'}}"
 {% endfor %}      
@@ -33,7 +33,7 @@
     volumes:
       - "{{'{{'}} {{ name }}_root{{'}}'}}:/var/app:Z"
     exposed: "{{'{{'}} {{ name }}_port{{'}}'}}"
-{% if dep_services %} 
+{% if dep_services is not none %} 
     links:
 {% for service in dep_services %}      - "{{'{{'}}{{service}}{{'}}'}}:{{'{{'}}{{service}}{{'}}'}}"
 {% endfor %}      

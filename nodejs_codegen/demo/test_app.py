@@ -32,3 +32,13 @@ def test_app():
     }
     
     gen("app", data, output_path)
+
+@with_setup(setup_test_app, clear)
+def test_app_with_None():
+    data = {
+        "name": "interface_data_service",
+        "methods": ["get_data", "update_data"],
+        "dep_services": None
+    }
+    
+    gen("app", data, output_path)
