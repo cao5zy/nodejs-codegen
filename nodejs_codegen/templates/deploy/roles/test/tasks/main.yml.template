@@ -1,18 +1,18 @@
 ---
-- name: query by project
+{% for method in methods %}
+- name: test for {{method}}
   uri:
     url: "{{'{{'}}{{name}}_test_url{{'}}'}}/act"
     method: POST
     body_format: json
     return_content: yes
     body: {
-      "action": "search_by_project",
-      "param": {
-         "project": "alancao"
-        }
+      "action": "{{method}}",
+      "param": {}
     }
-    register: result
+    register: {{method}}_result
 
-- debug: var=result.content
+- debug: var={{method}}_result.content
+{% endfor %}
 
 ...
