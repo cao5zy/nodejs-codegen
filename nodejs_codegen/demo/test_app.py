@@ -20,8 +20,8 @@ generate the code that subscribe to "app"
 '''
 @with_setup(setup_test_app, clear)
 def test_app():
-    gen("app", demjson.decode("./demo/data.json"), output_path)
+    gen("app", demjson.decode_file("./demo/data.json"), output_path)
 
 @with_setup(setup_test_app, clear)
 def test_app_with_None():
-    gen("app", demjson.decode("./demo/data.json"), output_path)
+    gen("app", demjson.decode_file("./demo/data.json"), output_path)
