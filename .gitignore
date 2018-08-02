@@ -1,2 +1,4 @@
 .env
 nodejs_codegen/test
+dist
+nodejs_codegen.egg-info
