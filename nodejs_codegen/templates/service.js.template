@@ -7,7 +7,7 @@
 (function(logger, config, impl){
        return function(options){
                {% for method in methods %}
-	       this.add({"action": "{{method}}"}, function(msg, respond){
+	       this.add({"action": "{{method.name}}"}, function(msg, respond){
                     impl.{{ method }}(msg.param, (data)=>respond(data, null));
 	       });
 	       {% endfor %}

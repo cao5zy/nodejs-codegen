@@ -7,7 +7,7 @@
     body_format: json
     return_content: yes
     body: {
-      "action": "{{method}}",
+      "action": "{{method.name}}",
       "param": {}
     }
     register: {{method}}_result
