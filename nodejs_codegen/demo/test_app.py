@@ -1,7 +1,7 @@
 from nose import with_setup
 from nodejs_codegen import gen
 from codegenhelper import put_folder, remove
-
+import demjson
 
 data = {
   "name": "test_app"
@@ -17,28 +17,11 @@ def clear():
 
 '''
 generate the code that subscribe to "app"
-    data = {
-        "name": "name of app",
-        "methods": ["get_data", "update_data"],
-        "dep_services": ["app1", "app2"]
-    }
 '''
 @with_setup(setup_test_app, clear)
 def test_app():
-    data = {
-        "name": "interface_data_service",
-        "methods": ["get_data", "update_data"],
-        "dep_services": ["app1", "app2"]
-    }
-    
-    gen("app", data, output_path)
+    gen("app", demjson.decode("./demo/data.json"), output_path)
 
 @with_setup(setup_test_app, clear)
 def test_app_with_None():
-    data = {
-        "name": "interface_data_service",
-        "methods": ["get_data", "update_data"],
-        "dep_services": None
-    }
-    
-    gen("app", data, output_path)
+    gen("app", demjson.decode("./demo/data.json"), output_path)
