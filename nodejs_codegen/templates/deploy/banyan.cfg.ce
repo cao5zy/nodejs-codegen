@@ -1,0 +1,5 @@
+{
+    "subscribe_name": "dependencies",
+    "template_path": "./banyan.cf.template",
+    "output_path": "./deploy/banyan.cfg"
+}

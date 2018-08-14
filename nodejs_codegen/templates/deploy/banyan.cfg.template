@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "dependencies": [
+     {
+             "project_name": "<project name>",
+	     		     "git": "<git url>",
+			     	    "config_name": "<configuration name>"
+     }
+  ],
+  "roles_seq": ["role1", "role2"],
+  "predefined_variables": {
+    "host": "130.71.32.2"
+  }
+}
