@@ -22,3 +22,7 @@ def test_app():
 @with_setup(setup_test_app, clear)
 def test_app_with_None():
     gen("app", demjson.decode_file("./demo/data.json"), output_path)
+
+@with_setup(setup_test_app, clear)
+def test_app_with_dependencies():
+    gen("dependencies", demjson.decode_file("./demo/data.json"), output_path)

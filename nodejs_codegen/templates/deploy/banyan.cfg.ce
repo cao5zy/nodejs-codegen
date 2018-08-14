@@ -1,5 +1,5 @@
 {
-    "subscribe_name": "dependencies",
-    "template_path": "./banyan.cf.template",
+    "subscribe_name": "app",
+    "template_path": "./banyan.cfg.template",
     "output_path": "./deploy/banyan.cfg"
 }
