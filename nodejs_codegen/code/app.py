@@ -9,7 +9,7 @@ def get_resource_path(name):
 def gen(subscribe_name,  data, output_path):
     publish(debug(get_resource_path('templates'), "gen:template_path"), \
             subscribe_name, \
-            mapping(get_resource_path("mappers/mapping.mapper"), data),
+            mapping(get_resource_path("mappers/%s.mapper" % subscribe_name), data),
             debug(output_path, 'gen:output_path')
             )
     
