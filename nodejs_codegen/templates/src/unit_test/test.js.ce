@@ -1,5 +1,5 @@
 {
     "subscribe_name": "app",
     "template_path": "./test.js.template",
-    "output_path": "./src/unit_tests/test.js"
+    "output_path": "./src/unit_test/test.js"
 }
