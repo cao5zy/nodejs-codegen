@@ -1,5 +1,5 @@
 from nose import with_setup
-from nodejs_codegen import gen
+from ..code.app import gen
 from codegenhelper import put_folder, remove
 import demjson
 
