@@ -1,4 +1,3 @@
 {{ name }}_port: 8001
 {{ name }}_debug: "true"
-{{ name }}_root: ""
 public_prefix: ""
