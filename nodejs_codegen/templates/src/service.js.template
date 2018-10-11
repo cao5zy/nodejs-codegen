@@ -8,7 +8,7 @@
        return function(options){
                {% for method in methods %}
 	       this.add({"action": "{{method.name}}"}, function(msg, respond){
-                    impl.{{ method }}(msg.param, (data)=>respond(data, null));
+                    impl.{{ method.name }}(msg.param, (data)=>respond(data, null));
 	       });
 	       {% endfor %}
 
