@@ -14,6 +14,6 @@
         }
     },
     "categories": {
-       "default": { "appenders": ["file", "dateFile", "out"], "level": "trace" }
+       "default": { "appenders": ["file", "out"], "level": "trace" }
     }
 }

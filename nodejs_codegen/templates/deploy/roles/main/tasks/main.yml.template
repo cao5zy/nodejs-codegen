@@ -2,7 +2,7 @@
 - name: init deploy folder
   file:
     path: "{{'{{'}} deploy_root {{'}}'}}"
-    state: diectory
+    state: directory
 
 - name: copy files to deploy folder
   synchronize:
@@ -33,7 +33,7 @@
     recreate: yes
     state: started
     entrypoint: "node app.js"
-    when: {{ name }}_debug=="true"
+  when: {{ name }}_debug=="true"
 
 - Name: "deploy {{'{{'}} {{ name }} {{'}}'}} for integration"
   docker_container:
@@ -52,7 +52,7 @@
     recreate: yes
     state: started
     entrypoint: "node app.js"
-    when: {{ name }}_debug=="false"
+  when: {{ name }}_debug=="false"
 
 
 
