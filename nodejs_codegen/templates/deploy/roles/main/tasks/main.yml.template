@@ -1,8 +1,18 @@
 ---
+- name: init deploy folder
+  file:
+    path: "{{'{{'}} deploy_root {{'}}'}}"
+    state: diectory
+
+- name: copy files to deploy folder
+  synchronize:
+    src: "./src/"
+    dest: "{{'{{'}}deploy_root{{'}}'}}"
+    
 - name: "configure {{ name }}"
   template:
     src: default.json.template
-    dest: "{{ '{{' }} {{ name }}_root {{ '}}' }}/config/default.json"
+    dest: "{{'{{'}}deploy_root{{'}}'}}/config/default.json"
 
 
 - name: "deploy {{ '{{' }} {{ name }} {{ '}}' }} for debug"
@@ -11,7 +21,7 @@
     image: "node:6.10.3"
     working_dir: "/var/app"
     volumes:
-      - "{{'{{'}} {{ name }}_root {{'}}'}}:/var/app:Z"
+      - "{{'{{'}}deploy_root{{'}}'}}:/var/app:Z"
     ports:
       - "{{'{{'}} {{ name }}_port {{'}}'}}:{{'{{'}} {{ name }}_port {{'}}'}}"
 {% if dep_services is not none %} 
@@ -31,7 +41,7 @@
     image: "node:6.10.3"
     working_dir: "/var/app"
     volumes:
-      - "{{'{{'}} {{ name }}_root{{'}}'}}:/var/app:Z"
+      - "{{'{{'}}deploy_root{{'}}'}}:/var/app:Z"
     exposed: "{{'{{'}} {{ name }}_port{{'}}'}}"
 {% if dep_services is not none %} 
     links:
