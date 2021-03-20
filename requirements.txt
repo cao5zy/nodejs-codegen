@@ -10,7 +10,7 @@ demjson==2.2.4
 docutils==0.14
 future==0.16.0
 idna==2.7
-Jinja2==2.10
+Jinja2==2.11.3
 mapper-on-file==0.0.2
 MarkupSafe==1.0
 nose==1.3.7
